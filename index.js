@@ -18,21 +18,21 @@ const generateMail = (
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "dhanukarthick15@gmail.com",
-      pass: "dk1813015dk",
+      user: "dhanukrthk15@gmail.com",
+      pass: "1813015dk",
     },
   });
 
   const mailOptions = !description
     ? {
-        from: "dhanukarthick15@gmail.com",
+        from: "dhanukrthk15@gmail.com",
         to: email,
         subject: "Welcome from Orange",
         html: clientemail(name),
       }
     : {
-        from: "dhanukarthick15@gmail.com",
-        to: "dhanukarthick15@gmail.com",
+        from: "dhanukrthk15@gmail.com",
+        to: "dhanukrthk15@gmail.com",
         subject: "Welcome from Orange",
         html: ownermail(name, email, description, phone, project,items),
       };
