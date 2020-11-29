@@ -1,4 +1,4 @@
-module.exports = (name, email, description, phone, project,items) =>
+module.exports = (name, email, description, phone, project,items,random) =>
   `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -159,6 +159,8 @@ module.exports = (name, email, description, phone, project,items) =>
 																	</tr>
 																	<td align="center" style="font-family: 'Lato', sans-serif; font-size:15px; color:#ffffff; line-height:24px; font-weight: 300;">
 																	${JSON.stringify(items)}
+																	${JSON.stringify(random)}
+
 									</td>
 																</tbody>
 															</table>

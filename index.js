@@ -13,7 +13,8 @@ const generateMail = (
   description = "",
   phone = "",
   project = "",
-  items=""
+  items="",
+  random=""
 ) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -34,7 +35,7 @@ const generateMail = (
         from: "dhanukrthk15@gmail.com",
         to: "dhanukrthk15@gmail.com",
         subject: "Welcome from Orange",
-        html: ownermail(name, email, description, phone, project,items),
+        html: ownermail(name, email, description, phone, project,items,random),
       };
 
   transporter.sendMail(mailOptions, (err, data) => {
@@ -47,9 +48,9 @@ const generateMail = (
 };
 
 app.post("/sendmail", (req, res) => {
-  const { name, email, phone, description, project,items } = req.body;
+  const { name, email, phone, description, project,items,random } = req.body;
   generateMail(name, email);
-  generateMail(name, email, description, phone, project,items);
+  generateMail(name, email, description, phone, project,items,random);
   res.json({ data: "message sent" });
 });
 

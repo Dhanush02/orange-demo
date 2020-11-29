@@ -18,7 +18,7 @@ const total = document.getElementById("total");
 let items = [];
 let itemsInCart = 0;
 let orderedItems = [];
-
+let randomNumber;
 // setTimeout(function () {
 //   document.querySelector(".layer").classList.add("complete");
 //   var loader = document.querySelector("#loader-wrapper");
@@ -72,7 +72,26 @@ iconShopping.addEventListener("click", function () {
 cartCloseBtn.addEventListener("click", function () {
   cartBox.classList.remove("active");
 });
+let generatePassword = () => {
+  var length = 8,
+    charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+    retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  randomNumber = retVal;
+};
+generatePassword();
 
+var mail = `https://mail.google.com/mail/?view=cm&fs=1&to=dhanukrthk15@gmail.com&su=${randomNumber}&body=Upload your files with the correct name`;
+console.log(mail);
+var mydiv = document.getElementById("myDiv");
+var aTag = document.createElement("a");
+aTag.setAttribute("href", mail);
+aTag.classList.add("btn" ,"btn-4");
+aTag.setAttribute("target", "_blank");
+aTag.innerText = "Upload you files";
+mydiv.appendChild(aTag);
 attToCartBtn.forEach((attBtn) => {
   attBtn.addEventListener("click", (e) => {
     let flag = true;
@@ -103,9 +122,10 @@ attToCartBtn.forEach((attBtn) => {
     }
   });
 });
+
 let addRows = () => {
   let tableData =
-    "<tr><th>S NO.</th><th>PRODUCT NAME</th><th>PRICE</th><th>QUANTITY</th><th>PRODUCT IMAGE</th><th>AMOUNT</th><th>UPLOAD YOUR FILES</th></tr>";
+    "<tr><th>S NO.</th><th>PRODUCT NAME</th><th>PRICE</th><th>QUANTITY</th><th>PRODUCT IMAGE</th><th>AMOUNT</th><th>DELETE</th></tr>";
 
   if (items == null || items.length == 0) {
     tableData += '<h1 class="text-center" >No items Found</h1>';
@@ -127,10 +147,14 @@ let addRows = () => {
         '">' +
         "</th><th>" +
         data.price * data.quantity +
-        '</th><th><a href="#" onclick=deleteRow(this); style="color:white;background:#E74040;padding:5px;border-radius:5px;">DELETE</a>&nbsp;<a class="anchor" href="https://mail.google.com/mail/?view=cm&fs=1&to=dhanukarthick15@gmail.com" target="_blank" style="color:white;background:grey;padding:5px;border-radius:5px;padding-right:5px;">UPLOAD</a></th></tr>';
+        '</th><th><a href="#" onclick=deleteRow(this); style="color:white;background:#E74040;padding:5px;border-radius:5px;">DELETE</a>&nbsp;</th></tr>';
     });
   }
   cardBoxTable.innerHTML = tableData;
+  // <a class="anchor" href="mailto:dhanukarthick15@gmail?&Subject=${randomNumber}&body=Body-goes-here"  target="_blank" style="color:white;background:grey;padding:5px;border-radius:5px;padding-right:5px;">UPLOAD</a>
+  // <a href="mailto:someone@yoursite.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email Us</a>
+  // href="https://mail.google.com/mail/?view=cm&fs=1&to=dhanukarthick15@gmail.com"
+
   totalAmount();
   // orderedItems = items;
   // console.log(orderedItems);
@@ -213,6 +237,7 @@ const send = async () => {
       project: project.value,
       description: description.value,
       items: items,
+      random: randomNumber,
     }),
   });
   const data = await response.json();
@@ -227,9 +252,9 @@ submitButton.addEventListener("click", (e) => {
         i
       ).nextElementSibling.nextElementSibling.className = "warning";
     } else {
-      document
-        .getElementById(i)
-        .nextElementSibling.nextElementSibling.className = "success"
+      document.getElementById(
+        i
+      ).nextElementSibling.nextElementSibling.className = "success";
     }
   }
   if (
@@ -246,8 +271,9 @@ submitButton.addEventListener("click", (e) => {
   /* <img class="img-fluid" src="'+data.image+'">' */
 }
 
-// document.getElementById("submit-button").addEventListener("click", function () {
-//   var timeoutID = setTimeout(function () {
-//     window.location.reload();
-//   }, 10000);
-// });
+document.getElementById("submit-button").addEventListener("click", function () {
+  var timeoutID = setTimeout(function () {
+    window.location.reload();
+  }, 10000);
+});
+                                                                        
