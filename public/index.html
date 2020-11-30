@@ -141,7 +141,7 @@
             </li>
             <li class="nav-item" role="presentation" id="nav-li-id1">
               <a
-                class="nav-link style violet-tab"
+                class="nav-link style violet-tab disabled"
                 id="pills-contact-tab"
                 data-toggle="pill"
                 href="#pills-contact"
@@ -149,7 +149,7 @@
                 aria-controls="pills-contact"
                 aria-selected="false"
                 data-aos="fade-right"
-                >Contact</a
+                >PLACE ORDER</a
               >
             </li>
 
@@ -174,15 +174,15 @@
                   <div class="cart">
                     <i class="fa fa-times"></i>
                     <div class="row">
-                      <!-- <img
-                        class="ml-4"
-                        src="./assets/images/icons8-shopping-cart-60.webp"
-                        height="30"
-                        width="30"
-                        class="img-fluid"
-                      /> -->
                       <h3 class="cart-heading mt-1 ml-4">YOUR CART</h3>
-
+                      <button
+                        type="button"
+                        class="btn-warning upload-btn"
+                        style="margin: 10px auto;padding: 12px;"
+                        onclick="redirectOrder()"
+                      >
+                        UPLOAD FILES
+                      </button>
                       <h4 class="grand-total mt-2">
                         Total:
                         <span
@@ -276,11 +276,11 @@
         </div>
         <!--IMAGE CONTENT-->
         <div
-          class="container-fluid mt-3 mb-3"
+          class="container-fluid mt-3 mb- home-image"
           style="padding-left: 60px; padding-right: 60px"
         >
           <div class="row justify-content-between">
-            <div class="col-md-4 mt-5 mb-5">
+            <div class="col-md-4 mt-5 mb-5 home-space">
               <img
                 src="./assets/images/Graphic design-PNG.webp"
                 class="img-fluid"
@@ -288,7 +288,7 @@
                 data-aos-duration="3000"
               />
             </div>
-            <div class="col-md-4 mt-5 mb-5">
+            <div class="col-md-4 mt-5 mb-5 home-space">
               <img
                 src="./assets/images/Web Design-PNG.webp"
                 class="img-fluid"
@@ -296,7 +296,7 @@
                 data-aos-duration="3000"
               />
             </div>
-            <div class="col-md-4 mt-5 mb-5">
+            <div class="col-md-4 mt-5 mb-5 home-space">
               <img
                 src="./assets/images/Logo Design-PNG.webp"
                 class="img-fluid"
@@ -413,40 +413,47 @@
           <div class="col-md-12 p-0 about-div">
             <h4 class="about-topic mb-4">We are happy to describe about us.</h4>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>Customer
-              satisfaction is our primary goal. We work on lowest margin to
-              raise your profit.
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >Customer satisfaction is our primary goal. We work on lowest
+              margin to raise your profit.
             </h5>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>We love
-              what we do. In fact, nothing makes us happier than delivering a
-              product that helps you achieve your goals.
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >We love what we do. In fact, nothing makes us happier than
+              delivering a product that helps you achieve your goals.
             </h5>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>We pride
-              ourselves in delivering the innovative design and expert printing
-              you deserve at affordable prices.
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >We pride ourselves in delivering the innovative design and expert
+              printing you deserve at affordable prices.
             </h5>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>Whether you
-              are looking for business cards, brochures, flyer, letterhead,
-              stickers, invitations, greetings and envelops (and much more), we
-              have the experience and expertise to deliver exactly what you
-              want, right on time.
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >Whether you are looking for business cards, brochures, flyer,
+              letterhead, stickers, invitations, greetings and envelops (and
+              much more), we have the experience and expertise to deliver
+              exactly what you want, right on time.
             </h5>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>We strive
-              hard to impress your customer by our designs.
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >We strive hard to impress your customer by our designs.
             </h5>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>We value
-              our customers and look for long term business association with all
-              our customers.
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >We value our customers and look for long term business
+              association with all our customers.
             </h5>
             <h5 class="mb-3">
-              <span class="mr-3" style="color: orange">&#9733;</span>We will
-              continue to evolve as a diversely skilled, fast-moving team of
-              print and designing professionals ready to meet whatever
+              <span class="mr-3" style="color: orange; font-size: 10px"
+                >&#9679;</span
+              >We will continue to evolve as a diversely skilled, fast-moving
+              team of print and designing professionals ready to meet whatever
               challenges come our way.
             </h5>
           </div>
@@ -589,11 +596,11 @@
                 OLE object & images to 300 dpi <span style="color: cyan">C</span
                 ><span style="color: magenta">M</span
                 ><span style="color: rgb(226, 226, 7)">Y</span
-                ><span style="color: black;font: bolder;">K</span> bitmap. For Copies more
-                than 1,000 - first placement (up) in the set will not have any
-                issue after printing. For 2-up, 3-up,....n-up the shadow will be
-                shifted while ripping if Bitmap not done for Drop Shadow. This
-                case is applicable for all Special effects.
+                ><span style="color: black; font: bolder">K</span> bitmap. For
+                Copies more than 1,000 - first placement (up) in the set will
+                not have any issue after printing. For 2-up, 3-up,....n-up the
+                shadow will be shifted while ripping if Bitmap not done for Drop
+                Shadow. This case is applicable for all Special effects.
               </p>
             </li>
             <li>
@@ -606,16 +613,16 @@
                 such as <span style="color: cyan">C</span
                 ><span style="color: magenta">M</span
                 ><span style="color: rgb(226, 226, 7)">Y</span
-                ><span style="color: black;font: bolder;">K</span>. When you print non-transparent, overlapping
-                colours, the top colour knock outs the area underneath. When
-                used intentionally, overprint represents an additional way to
-                create artwork that is visually interesting and distinctive.
-                However, if overprint is turned on without your realising it,
-                you will probably end up with prints that look significantly
-                different from what you expected when designing them. We shall
-                not be held responsible for any Overprint setting in your
-                artwork. Kindly do the self-check for any unwanted Overprint
-                setting in your artwork.
+                ><span style="color: black; font: bolder">K</span>. When you
+                print non-transparent, overlapping colours, the top colour knock
+                outs the area underneath. When used intentionally, overprint
+                represents an additional way to create artwork that is visually
+                interesting and distinctive. However, if overprint is turned on
+                without your realising it, you will probably end up with prints
+                that look significantly different from what you expected when
+                designing them. We shall not be held responsible for any
+                Overprint setting in your artwork. Kindly do the self-check for
+                any unwanted Overprint setting in your artwork.
               </p>
             </li>
             <li>
@@ -633,22 +640,21 @@
                 <br />
 
                 <br />
-                
-                  <span style="color: cyan">Cyan</span
-                    > - <span style="color: magenta">Magenta</span
-                      > / <span style="color: rgb(226, 226, 7)">Yellow</span
-                        > - <span style="color: cyan">Cyan</span
-                          > / <span style="color: magenta">Magenta</span
-                            > - <span style="color: rgb(226, 226, 7)">Yellow</span
-                              >
+
+                <span style="color: cyan">Cyan</span> -
+                <span style="color: magenta">Magenta</span> /
+                <span style="color: rgb(226, 226, 7)">Yellow</span> -
+                <span style="color: cyan">Cyan</span> /
+                <span style="color: magenta">Magenta</span> -
+                <span style="color: rgb(226, 226, 7)">Yellow</span>
                 <br />
 
                 <br />
-                For Black colour letters / texts colour ratio must be <span style="color: cyan">C</span
-                  >:0, <span style="color: magenta">M</span
-                    >:0,
-                    <span style="color: rgb(226, 226, 7)">Y</span
-                      >:0 & <span style="color: black;font: bolder;">K</span>:100.
+                For Black colour letters / texts colour ratio must be
+                <span style="color: cyan">C</span>:0,
+                <span style="color: magenta">M</span>:0,
+                <span style="color: rgb(226, 226, 7)">Y</span>:0 &
+                <span style="color: black; font: bolder">K</span>:100.
                 <br />
               </p>
             </li>
@@ -661,14 +667,17 @@
                 <br />
 
                 <br />
-                All colours in the design must be <span style="color: cyan">C</span
-                  ><span style="color: magenta">M</span
-                  ><span style="color: rgb(226, 226, 7)">Y</span
-                  ><span style="color: black;font: bolder;">K</span> only.
+                All colours in the design must be
+                <span style="color: cyan">C</span
+                ><span style="color: magenta">M</span
+                ><span style="color: rgb(226, 226, 7)">Y</span
+                ><span style="color: black; font: bolder">K</span> only.
                 <br />
 
                 <br />
-                Do not use <span style="color: red;">R</span><span style="color: blue;">B</span><span style="color: green;">G</span> and pantone colours.
+                Do not use <span style="color: red">R</span
+                ><span style="color: blue">B</span
+                ><span style="color: green">G</span> and pantone colours.
                 <br />
               </p>
             </li>
@@ -677,13 +686,15 @@
               <i></i>
               <h2>LAMINATION</h2>
               <p>
-                Maintain the total colour ratio less than 210% (<span style="color: cyan">Cyan</span
-                  > - <span style="color: magenta">Magenta</span
-                    > / <span style="color: rgb(226, 226, 7)">Yellow</span
-                      > - <span style="color: cyan">Cyan</span
-                        > / <span style="color: magenta">Magenta</span
-                          > - <span style="color: rgb(226, 226, 7)">Yellow</span
-                            > < 210%),
+                Maintain the total colour ratio less than 210% (<span
+                  style="color: cyan"
+                  >Cyan</span
+                >
+                - <span style="color: magenta">Magenta</span> /
+                <span style="color: rgb(226, 226, 7)">Yellow</span> -
+                <span style="color: cyan">Cyan</span> /
+                <span style="color: magenta">Magenta</span> -
+                <span style="color: rgb(226, 226, 7)">Yellow</span> < 210%),
                 <br />
 
                 <br />
@@ -2245,7 +2256,7 @@
                     <p class="ml-2">*Enter some Address</p>
                   </div>
                 </div>
-                <div class="text-center container">
+                <div class="text-left container p-0">
                   <div id="myDiv"></div>
                   <button
                     class="btn mb-5 btn-warning float-right"
@@ -2253,7 +2264,7 @@
                     id="submit-button"
                   >
                     <i class="fas fa-share ml-2"></i>
-                    Send
+                    CONFIRM ORDER
                   </button>
                 </div>
               </form>

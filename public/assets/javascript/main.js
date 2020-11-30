@@ -72,6 +72,24 @@ iconShopping.addEventListener("click", function () {
 cartCloseBtn.addEventListener("click", function () {
   cartBox.classList.remove("active");
 });
+
+let redirectOrder = () => {
+  let upload = document.getElementById("pills-contact-tab");
+  if (items.length > 0 && items != null ) {
+    
+    
+    upload.classList.remove("disabled");
+    let checkout = localStorage.setItem("activeTab", "#pills-contact");
+    var activeTab = localStorage.getItem("activeTab");
+      console.log(activeTab);
+      cartBox.classList.remove("active");
+      if (activeTab) {
+        $('a[href="' + activeTab + '"]').tab("show");
+      }
+  } else {
+    upload.classList.add("disabled");
+  }
+};
 let generatePassword = () => {
   var length = 8,
     charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
@@ -88,9 +106,9 @@ console.log(mail);
 var mydiv = document.getElementById("myDiv");
 var aTag = document.createElement("a");
 aTag.setAttribute("href", mail);
-aTag.classList.add("btn" ,"btn-4");
+aTag.classList.add("btn", "btn-4");
 aTag.setAttribute("target", "_blank");
-aTag.innerText = "Upload you files";
+aTag.innerText = "Attach you files";
 mydiv.appendChild(aTag);
 attToCartBtn.forEach((attBtn) => {
   attBtn.addEventListener("click", (e) => {
@@ -132,6 +150,7 @@ let addRows = () => {
   } else {
     items.map((data, index) => {
       tableData +=
+      
         "<tr><th>" +
         (index + 1) +
         "." +
@@ -151,30 +170,13 @@ let addRows = () => {
     });
   }
   cardBoxTable.innerHTML = tableData;
+
   // <a class="anchor" href="mailto:dhanukarthick15@gmail?&Subject=${randomNumber}&body=Body-goes-here"  target="_blank" style="color:white;background:grey;padding:5px;border-radius:5px;padding-right:5px;">UPLOAD</a>
   // <a href="mailto:someone@yoursite.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email Us</a>
   // href="https://mail.google.com/mail/?view=cm&fs=1&to=dhanukarthick15@gmail.com"
 
   totalAmount();
-  // orderedItems = items;
-  // console.log(orderedItems);
-  // let container = document.getElementById("ordered-items");
-  // let contents = document.createElement("div");
-  // orderedItems.forEach((items, index) => {
-  //   let element = document.createElement("div");
-  //   element.textContent = JSON.stringify(items);
-  //   contents.innerHTML += element.innerHTML;
-  // });
-  // container.appendChild(contents);
 };
-// const listOrder = (item) => {
-//   let container = document.getElementById("ordered-items");
-//   let contents = document.createElement("div");
-//   let element = document.createElement("div");
-//   element.textContent = JSON.stringify(items);
-//   contents.innerHTML += element.innerHTML;
-//   container.appendChild(contents);
-// };
 let deleteRow = (e) => {
   iconShoppingP.innerHTML = --itemsInCart;
   items = items.filter(
@@ -245,7 +247,7 @@ const send = async () => {
 };
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
-  
+
   validObject["description"] = description.value.length < 10 ? false : true;
   for (i in validObject) {
     if (!validObject[i]) {
@@ -264,7 +266,7 @@ submitButton.addEventListener("click", (e) => {
     validObject["email"] &&
     validObject["description"]
   ) {
-    window.location.href = './result.html';
+    window.location.href = "./result.html";
     send();
   }
 });
@@ -278,4 +280,3 @@ submitButton.addEventListener("click", (e) => {
 //     window.location.reload();
 //   }, 10000);
 // });
-                                                                        

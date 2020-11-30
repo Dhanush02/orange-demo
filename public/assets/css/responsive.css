@@ -71,5 +71,12 @@
     position: relative;
     top:40px;
   }
-  
-}
+  .home-image{
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .home-space{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  }
