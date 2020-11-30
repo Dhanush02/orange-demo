@@ -245,6 +245,7 @@ const send = async () => {
 };
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
+  
   validObject["description"] = description.value.length < 10 ? false : true;
   for (i in validObject) {
     if (!validObject[i]) {
@@ -263,6 +264,7 @@ submitButton.addEventListener("click", (e) => {
     validObject["email"] &&
     validObject["description"]
   ) {
+    window.location.href = './result.html';
     send();
   }
 });
@@ -271,9 +273,9 @@ submitButton.addEventListener("click", (e) => {
   /* <img class="img-fluid" src="'+data.image+'">' */
 }
 
-document.getElementById("submit-button").addEventListener("click", function () {
-  var timeoutID = setTimeout(function () {
-    window.location.reload();
-  }, 10000);
-});
+// document.getElementById("submit-button").addEventListener("click", function () {
+//   var timeoutID = setTimeout(function () {
+//     window.location.reload();
+//   }, 10000);
+// });
                                                                         

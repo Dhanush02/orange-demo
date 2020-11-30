@@ -34,7 +34,7 @@ const generateMail = (
     : {
         from: "dhanukrthk15@gmail.com",
         to: "dhanukrthk15@gmail.com",
-        subject: "Welcome from Orange",
+        subject: "Welcome from Orange ",
         html: ownermail(name, email, description, phone, project,items,random),
       };
 
@@ -42,7 +42,10 @@ const generateMail = (
     if (err) {
       console.log(err);
     } else {
+      // res.status(200).send('<script>location.href = "result.html";</script>');
+
       console.log(data);
+      
     }
   });
 };
@@ -52,11 +55,11 @@ app.post("/sendmail", (req, res) => {
   generateMail(name, email);
   generateMail(name, email, description, phone, project,items,random);
   res.json({ data: "message sent" });
+  
 });
 
 app.get('*', function(req, res){
   if (req.accepts('html')) {
-    //  res.send('404', '<script>location.href = "404.html";</script>');
     res.status(404).send('<script>location.href = "404.html";</script>')
      return;
   }
