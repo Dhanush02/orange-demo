@@ -440,83 +440,9 @@ body::-webkit-scrollbar-thumb,
   line-height: 30px;
   font-size: 18px;
 }
-/* .nav-fix {
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
-}
-.style {
-  opacity: 1;
-  display: inline-block;
-  margin: 10px !important;
-  padding: 5px 10px !important;
-  font-weight: bolder;
-  font-size: 1em !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  color: orange;
-  background: none;
-}
-.nav-pills .red-tab.active,
-.nav-pills .show > .red-tab,
-.nav-pills .red-tab:hover {
-  color: rgb(253, 66, 66);
-  background: none;
-  border-bottom: 2px solid rgb(253, 66, 66);
-}
-.nav-pills .orange2-tab.active,
-.nav-pills .show > .orange2-tab,
-.nav-pills .orange2-tab:hover {
-  color: rgb(184, 141, 48);
-  background: none;
-  border-bottom: 2px solid rgb(184, 141, 48);
-}
-.nav-pills .blue-tab.active,
-.nav-pills .show > .blue-tab,
-.nav-pills .blue-tab:hover {
-  color: rgb(66, 138, 253);
-  background: none;
-  border-bottom: 2px solid rgb(66, 138, 253);
-}
-.nav-pills .green-tab.active,
-.nav-pills .show > .green-tab,
-.nav-pills .green-tab:hover {
-  color: rgb(100, 209, 36);
-  background: none;
-  border-bottom: 2px solid rgb(100, 209, 36);
-}
-.nav-pills .orange-tab.active,
-.nav-pills .show > .orange-tab,
-.nav-pills .orange-tab:hover {
-  color: rgb(253, 150, 66);
-  background: none;
-  border-bottom: 2px solid rgb(253, 150, 66);
-}
-.nav-pills .violet-tab.active,  
-.nav-pills .show > .violet-tab,
-.nav-pills .violet-tab:hover {
-  color: rgb(209, 66, 253);
-  background: none;
-  border-bottom: 2px solid rgb(209, 66, 253);
-}
-.fas {
-  visibility: hidden;
-}
-.title-section h2 {
-  padding-left: 30px;
-  border-left: 4px solid orange;
-  display: inline-block;
-  color: #000;
-} */
-/* img {
+img {
   pointer-events: none;
-} */
+}
 .title-section.text-center h2:after {
   position: absolute;
   bottom: 0;
@@ -585,9 +511,6 @@ body::-webkit-scrollbar-thumb,
   height: 100%;
   width: 100%;
   background: #fff;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   overflow: scroll;
 }
 .upload-btn {
@@ -683,7 +606,6 @@ table tr th {
   position: absolute;
   right: 100px;
 }
-/* footer */
 .footer {
   background: #ffe252;
   font-family: "Roboto", sans-serif !important;
@@ -719,22 +641,10 @@ hr {
   transition: 0.6s all ease-in-out;
   transform: scale(1.1);
 }
-
 .contact-form {
-  /* background-color: ; */
   padding: 2rem;
   padding-bottom: 0 !important;
 }
-
-/* .contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  background: #ffffff;
-  box-shadow: none;
-  background: #cfcfcf;
-
-} */
-
 .contact-form textarea ~ p,
 .contact-form input ~ p,
 .contact-form select + p {
@@ -767,7 +677,6 @@ hr {
 }
 
 .contact-form {
-  /* background-color: ; */
   padding: 1.5rem;
   padding-bottom: 0 !important;
 }
@@ -792,17 +701,11 @@ hr {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
 }
-
-/* Demo Stuff End -> */
-
-/* <- Magic Stuff Start */
-
 .btn:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center; 
 }
 .btn-4 {
   background-image: linear-gradient(

@@ -265,11 +265,7 @@ submitButton.addEventListener("click", (e) => {
     validObject["description"]
   ) {
     window.location.href = "./result.html";
-    localStorage.clear()
+    localStorage.clear();
     send();
   }
 });
-
-{
-  /* <img class="img-fluid" src="'+data.image+'">' */
-}
