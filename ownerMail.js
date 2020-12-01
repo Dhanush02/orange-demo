@@ -84,6 +84,7 @@ module.exports = (name, email, description, phone, project, items, random) =>
 	<p>${Object.values(items).map(key => {
 		return JSON.stringify(key)
 	})}</p>
+	<p>${JSON.stringify(random)}</p>
 	  <h3>Designing</h3>
 	  <p>By virtue of this definition, design is undeniably art. It can be found in every human culture. It is used to create objects, performances, and experiences..</p>
 	</div>

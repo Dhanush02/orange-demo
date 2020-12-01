@@ -75,17 +75,16 @@ cartCloseBtn.addEventListener("click", function () {
 
 let redirectOrder = () => {
   let upload = document.getElementById("pills-contact-tab");
-  if (items.length > 0 && items != null ) {
-    
-    
+  let contactRoute = localStorage.setItem("activeTab", "#pills-contact");
+  let productRoute = localStorage.setItem("activeTab", "#pills-works");
+  var activeTab = localStorage.getItem("activeTab");
+  if (items.length > 0 && items != null) {
     upload.classList.remove("disabled");
-    let checkout = localStorage.setItem("activeTab", "#pills-contact");
-    var activeTab = localStorage.getItem("activeTab");
-      console.log(activeTab);
-      cartBox.classList.remove("active");
-      if (activeTab) {
-        $('a[href="' + activeTab + '"]').tab("show");
-      }
+    cartBox.classList.remove("active");
+    $('a[href="' + "#pills-contact" + '"]').tab("show");
+  } else if (items.length == 0 || (items == [] && items == null)) {
+    cartBox.classList.remove("active");
+    $('a[href="' + "#pills-works" + '"]').tab("show");
   } else {
     upload.classList.add("disabled");
   }
@@ -150,7 +149,6 @@ let addRows = () => {
   } else {
     items.map((data, index) => {
       tableData +=
-      
         "<tr><th>" +
         (index + 1) +
         "." +
@@ -267,6 +265,7 @@ submitButton.addEventListener("click", (e) => {
     validObject["description"]
   ) {
     window.location.href = "./result.html";
+    localStorage.clear()
     send();
   }
 });
@@ -274,9 +273,3 @@ submitButton.addEventListener("click", (e) => {
 {
   /* <img class="img-fluid" src="'+data.image+'">' */
 }
-
-// document.getElementById("submit-button").addEventListener("click", function () {
-//   var timeoutID = setTimeout(function () {
-//     window.location.reload();
-//   }, 10000);
-// });
