@@ -19,11 +19,11 @@ let items = [];
 let itemsInCart = 0;
 let orderedItems = [];
 let randomNumber;
-setTimeout(function () {
-  document.querySelector(".layer").classList.add("complete");
-  var loader = document.querySelector("#loader-wrapper");
-  loader.style.display = "none";
-}, 1500);
+// setTimeout(function () {
+//   document.querySelector(".layer").classList.add("complete");
+//   var loader = document.querySelector("#loader-wrapper");
+//   loader.style.display = "none";
+// }, 1500);
 
 let flag = true;
 if (flag) {
