@@ -42,8 +42,6 @@ const generateMail = (
     if (err) {
       console.log(err);
     } else {
-      // res.status(200).send('<script>location.href = "result.html";</script>');
-
       console.log(data);
       
     }

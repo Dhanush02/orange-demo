@@ -82,7 +82,7 @@ module.exports = (name, email, description, phone, project, items, random) =>
   <div class="col-md-4">
 	<div class="card card-1">
 	<p>${Object.values(items).map(key => {
-		return JSON.stringify(key)
+		 return JSON.stringify(key.name)
 	})}</p>
 	<p>${JSON.stringify(random)}</p>
 	  <h3>Designing</h3>

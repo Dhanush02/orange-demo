@@ -19,11 +19,11 @@ let items = [];
 let itemsInCart = 0;
 let orderedItems = [];
 let randomNumber;
-// setTimeout(function () {
-//   document.querySelector(".layer").classList.add("complete");
-//   var loader = document.querySelector("#loader-wrapper");
-//   loader.style.display = "none";
-// }, 1500);
+setTimeout(function () {
+  document.querySelector(".layer").classList.add("complete");
+  var loader = document.querySelector("#loader-wrapper");
+  loader.style.display = "none";
+}, 1500);
 
 let flag = true;
 if (flag) {
@@ -77,7 +77,6 @@ let redirectOrder = () => {
   let upload = document.getElementById("pills-contact-tab");
   let contactRoute = localStorage.setItem("activeTab", "#pills-contact");
   let productRoute = localStorage.setItem("activeTab", "#pills-works");
-  var activeTab = localStorage.getItem("activeTab");
   if (items.length > 0 && items != null) {
     upload.classList.remove("disabled");
     cartBox.classList.remove("active");
@@ -168,11 +167,6 @@ let addRows = () => {
     });
   }
   cardBoxTable.innerHTML = tableData;
-
-  // <a class="anchor" href="mailto:dhanukarthick15@gmail?&Subject=${randomNumber}&body=Body-goes-here"  target="_blank" style="color:white;background:grey;padding:5px;border-radius:5px;padding-right:5px;">UPLOAD</a>
-  // <a href="mailto:someone@yoursite.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email Us</a>
-  // href="https://mail.google.com/mail/?view=cm&fs=1&to=dhanukarthick15@gmail.com"
-
   totalAmount();
 };
 let deleteRow = (e) => {
