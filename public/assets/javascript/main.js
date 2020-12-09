@@ -19,6 +19,7 @@ let items = [];
 let itemsInCart = 0;
 let orderedItems = [];
 let randomNumber;
+let sum = 0;
 // setTimeout(function () {
 //   document.querySelector(".layer").classList.add("complete");
 //   var loader = document.querySelector("#loader-wrapper");
@@ -178,7 +179,7 @@ let deleteRow = (e) => {
   addRows();
 };
 let totalAmount = () => {
-  let sum = 0;
+   sum = 0;
   items.map((item) => {
     sum += item.quantity * item.price;
   });
@@ -232,6 +233,7 @@ const send = async () => {
       description: description.value,
       items: items,
       random: randomNumber,
+      sum:sum
     }),
   });
   const data = await response.json();
