@@ -13,30 +13,37 @@ const generateMail = (
   description = "",
   phone = "",
   project = "",
-  items="",
-  random="",
-  sum="",
+  items = "",
+  random = ""
 ) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "dhanukrthk15@gmail.com",
-      pass: "1813015dk",
+      user: "dhanushkrthk15@gmail.com",
+      pass: "dk1813015dk",
     },
   });
 
   const mailOptions = !description
     ? {
-        from: "dhanukrthk15@gmail.com",
+        from: "dhanushkrthk15@gmail.com",
         to: email,
         subject: "Welcome from Orange",
-        html: clientemail(name,email),
+        html: clientemail(name),
       }
     : {
-        from: "dhanukrthk15@gmail.com",
-        to: "dhanukrthk15@gmail.com",
+        from: "dhanushkrthk15@gmail.com",
+        to: "dhanushkrthk15@gmail.com",
         subject: "Welcome from Orange ",
-        html: ownermail(name, email, description, phone, project,items,random),
+        html: ownermail(
+          name,
+          email,
+          description,
+          phone,
+          project,
+          items,
+          random
+        ),
       };
 
   transporter.sendMail(mailOptions, (err, data) => {
@@ -44,23 +51,21 @@ const generateMail = (
       console.log(err);
     } else {
       console.log(data);
-      
     }
   });
 };
 
 app.post("/sendmail", (req, res) => {
-  const { name, email, phone, description, project,items,random,sum } = req.body;
+  const { name, email, phone, description, project, items, random } = req.body;
   generateMail(name, email);
-  generateMail(name, email, description, phone, project,items,random);
+  generateMail(name, email, description, phone, project, items, random);
   res.json({ data: "message sent" });
-  
 });
 
-app.get('*', function(req, res){
-  if (req.accepts('html')) {
-    res.status(404).send('<script>location.href = "404.html";</script>')
-     return;
+app.get("*", function (req, res) {
+  if (req.accepts("html")) {
+    res.status(404).send('<script>location.href = "404.html";</script>');
+    return;
   }
 });
 

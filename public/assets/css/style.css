@@ -742,13 +742,20 @@ h2 {
   -ms-user-select: none;
   user-select: none;
 }
-
+.guide{
+  position: relative;
+  left: 0%;
+  margin: 10px 0;
+}
+.btn-4{
+  color:black;
+}
 .rules {
   min-height: 0;
   display: inline-block;
   position: relative;
   left: 50%;
-  margin: 90px 0;
+  margin: 10px 0;
   transform: translate(-50%, 0);
   box-shadow: 0 3px 0 0 orange inset;
   max-width: 60%;

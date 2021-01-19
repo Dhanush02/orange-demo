@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/responsive.css" />
-    <link rel="stylesheet" href="./assets/css/nprogress.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
       rel="stylesheet"
@@ -33,8 +32,6 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     />
-
-    <script src="./assets/javascript/nprogress.js"></script>
   </head>
 
   <body data-spy="scroll" data-target="#navbar-example2" data-offset="0">
@@ -285,21 +282,23 @@
             <div class="col-md-4 mt-5 mb-5 home-space">
               <img
                 src="./assets/images/Graphic design-PNG.webp"
-                class="img-fluid"
+                class="img-fluid home-image"
                 alt="graphic design"
               />
             </div>
+
             <div class="col-md-4 mt-5 mb-5 home-space">
               <img
                 src="./assets/images/Web Design-PNG.webp"
-                class="img-fluid"
+                class="img-fluid home-image"
                 alt="web design"
               />
             </div>
+
             <div class="col-md-4 mt-5 mb-5 home-space">
               <img
                 src="./assets/images/Logo Design-PNG.webp"
-                class="img-fluid"
+                class="img-fluid home-image"
                 alt="logo design"
               />
             </div>
@@ -477,20 +476,21 @@
         id="pills-service"
         role="tabpanel"
         aria-labelledby="pills-service-tab"
+        style="overflow: hidden;"
       >
         <img
           src="./assets/images/File Format - 3d (1).webp"
           height="100%"
           width="100%"
-          class="mb-3"
+          class="mb-3 img-fluid"
           alt="file-format"
         />
+
+        <h1 class="guide mt-5" style="position: relative; left: 20%">
+          <b> Guidelines </b>
+        </h1>
+
         <div class="rules">
-          <center>
-            <h1 class="guide">
-              <b> Guidelines </b>
-            </h1>
-          </center>
           <p>
             We believe everyone should be welcomed, every point of view should
             be given a chance. We welcome debate, as long as it is done
@@ -2258,6 +2258,7 @@
                     class="btn mb-5 btn-warning float-right"
                     type="submit"
                     id="submit-button"
+                    style="position: absolute; right: 37px; top: 87.2%"
                   >
                     <i class="fas fa-share ml-2"></i>
                     CONFIRM ORDER
@@ -2271,6 +2272,7 @@
     </div>
 
     <script src="assets/javascript/main.js"></script>
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -1,6 +1,3 @@
-NProgress.start();
-NProgress.done();
-
 let home = document.querySelectorAll("#nav-li-id1 a");
 let thinkRoom = document.querySelector("#nav-li-id5 a");
 let changeNav = document.querySelector(".navbar");
@@ -19,7 +16,6 @@ let items = [];
 let itemsInCart = 0;
 let orderedItems = [];
 let randomNumber;
-let sum = 0;
 // setTimeout(function () {
 //   document.querySelector(".layer").classList.add("complete");
 //   var loader = document.querySelector("#loader-wrapper");
@@ -76,8 +72,6 @@ cartCloseBtn.addEventListener("click", function () {
 
 let redirectOrder = () => {
   let upload = document.getElementById("pills-contact-tab");
-  let contactRoute = localStorage.setItem("activeTab", "#pills-contact");
-  let productRoute = localStorage.setItem("activeTab", "#pills-works");
   if (items.length > 0 && items != null) {
     upload.classList.remove("disabled");
     cartBox.classList.remove("active");
@@ -100,11 +94,11 @@ let generatePassword = () => {
 };
 generatePassword();
 
-var mail = `https://mail.google.com/mail/?view=cm&fs=1&to=dhanukrthk15@gmail.com&su=${randomNumber}&body=Upload your files with the correct name`;
-console.log(mail);
+var mail = `https://mail.google.com/mail/?view=cm&fs=1&to=dhanukrthk15@gmail.com&su=${randomNumber}&body=Upload your files with the correct name ${randomNumber}`;
 var mydiv = document.getElementById("myDiv");
 var aTag = document.createElement("a");
 aTag.setAttribute("href", mail);
+aTag.setAttribute("rel","noopener");
 aTag.classList.add("btn", "btn-4");
 aTag.setAttribute("target", "_blank");
 aTag.innerText = "Attach you files";
@@ -179,7 +173,7 @@ let deleteRow = (e) => {
   addRows();
 };
 let totalAmount = () => {
-   sum = 0;
+  let sum = 0;
   items.map((item) => {
     sum += item.quantity * item.price;
   });
@@ -233,11 +227,9 @@ const send = async () => {
       description: description.value,
       items: items,
       random: randomNumber,
-      sum:sum
     }),
   });
   const data = await response.json();
-  console.log(data);
 };
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
