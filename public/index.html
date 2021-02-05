@@ -150,7 +150,7 @@
                 aria-controls="pills-contact"
                 aria-selected="false"
                 data-aos="fade-right"
-                >PLACE ORDER</a
+                >Payment</a
               >
             </li>
 
@@ -172,7 +172,7 @@
               </div>
               <div class="cartBox">
                 <div class="cart">
-                  <i class="fa fa-times"></i>
+                  <i class="fa fa-times" onclick="closeOrder()"></i>
                   <div class="row">
                     <h3 class="cart-heading mt-1 ml-4">YOUR CART</h3>
                     <button
@@ -2193,7 +2193,7 @@
           >
             <div class="col-md-12 col-lg-6">
               <img
-                src="assets/images/phone.webp"
+                src="assets/images/account.png"
                 class="img-fluid"
                 alt="phone-contact"
               />
@@ -2249,11 +2249,68 @@
                     <div class="form-group">
                       <label>Mode of Delivery:</label>
                       <select class="form-control custom-select" id="project">
-                        <option>Courier Delivery</option>
+                        <option selected="selected"></option>
+                        <option>Courier Delivery(Within Tamilnadu)</option>
+                        <option>Courier Delivery(Other)</option>
                         <option>Two pay Delivery</option>
                         <option>Office Delivery(Orange)</option>
                       </select>
                       <p></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group position-relative">
+                      <label>Account Number</label>
+                      <input
+                        type="text"
+                        name="account"
+                        id="account"
+                        class="form-control"
+                        placeholder="Enter your Account Number"
+                      />
+                      <i class="contact-sign"></i>
+                      <p>*Enter your Account Number</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Payment type</label>
+                      <select class="form-control custom-select" id="paymentType">
+                        <option>Online Payment</option>
+                        <option>Account Tranferring</option>
+                        <option>Google pay</option>
+                        <option>PhonePe</option>
+                      </select>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group position-relative">
+                      <label>Amount</label>
+                      <h3
+                        id="balance"
+                        style="font-weight: bolder; color: orange"
+                      ></h3>
+                      <!-- <i class="contact-sign"></i>
+                      <p>*Enter your name</p> -->
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group position-relative">
+                      <label>Note</label>
+                      <input
+                        type="text"
+                        name="note"
+                        id="note"
+                        class="form-control"
+                        placeholder="Enter Note"
+                      />
+                      <i class="fas validate-icon"></i>
+                      <p>*Enter Note</p>
                     </div>
                   </div>
                 </div>
@@ -2276,7 +2333,6 @@
                     class="btn mb-5 btn-warning float-right"
                     type="submit"
                     id="submit-button"
-                    style="position: absolute; right: 37px; top: 87.2%"
                   >
                     <i class="fas fa-share ml-2"></i>
                     CONFIRM ORDER

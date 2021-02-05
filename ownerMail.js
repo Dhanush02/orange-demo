@@ -1,4 +1,4 @@
-module.exports = (name, email, description, phone, project, items, random) =>
+module.exports = (name, email, description, phone, project, items, random,paymentType,account,note) =>
   `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -87,6 +87,9 @@ module.exports = (name, email, description, phone, project, items, random) =>
 	<li style="font-size:18px;">${description}</li>
 	<li style="font-size:18px;">${phone}</li>
 	<li style="font-size:18px;">${project}</li>
+	<li style="font-size:18px;">${paymentType}</li>
+	<li style="font-size:18px;">${account}</li>
+	<li style="font-size:18px;">${note}</li>
 	<li style="font-size:18px;">${Object.values(items).map(key => {
 		 return JSON.stringify(key)
 	})}</li>

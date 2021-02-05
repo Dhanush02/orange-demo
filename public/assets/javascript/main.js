@@ -12,6 +12,17 @@ const attToCartBtn = document.querySelectorAll(".attToCart");
 const iconShoppingP = document.querySelector(".iconShopping p");
 const cardBoxTable = cartBox.querySelector("table");
 const total = document.getElementById("total");
+const balance = document.getElementById("balance");
+let keys = document.querySelectorAll("input");
+
+const name = document.getElementById("name");
+const phone = document.getElementById("phone");
+const email = document.getElementById("email");
+const project = document.getElementById("project");
+const account = document.getElementById("account");
+const paymentType = document.getElementById("paymentType");
+let upload = document.getElementById("pills-contact-tab");
+let cartPro = document.getElementById("pills-works-tab");
 let items = [];
 let itemsInCart = 0;
 let orderedItems = [];
@@ -21,7 +32,10 @@ let randomNumber;
 //   var loader = document.querySelector("#loader-wrapper");
 //   loader.style.display = "none";
 // }, 1500);
-
+cartPro.addEventListener("click",()=>{
+  document.getElementById("project").value = ""
+  balance.textContent = "select mode of delivery"
+})
 let flag = true;
 if (flag) {
   thinkRoom.addEventListener("click", (e) => {
@@ -69,15 +83,20 @@ iconShopping.addEventListener("click", function () {
 cartCloseBtn.addEventListener("click", function () {
   cartBox.classList.remove("active");
 });
-
+let closeOrder = () => {
+  if (items.length == 0 || (items === [] && items === null)) {
+    $('a[href="' + "#pills-works" + '"]').tab("show");
+    upload.classList.add("disabled");
+  }
+}
 let redirectOrder = () => {
-  let upload = document.getElementById("pills-contact-tab");
   if (items.length > 0 && items != null) {
     upload.classList.remove("disabled");
     cartBox.classList.remove("active");
     $('a[href="' + "#pills-contact" + '"]').tab("show");
-  } else if (items.length == 0 || (items == [] && items == null)) {
+  } else if (items.length == 0 || (items === [] && items === null)) {
     cartBox.classList.remove("active");
+    upload.classList.add("disabled");
     $('a[href="' + "#pills-works" + '"]').tab("show");
   } else {
     upload.classList.add("disabled");
@@ -94,11 +113,11 @@ let generatePassword = () => {
 };
 generatePassword();
 
-var mail = `https://mail.google.com/mail/?view=cm&fs=1&to=dhanukrthk15@gmail.com&su=${randomNumber}&body=Upload your files with the correct name ${randomNumber}`;
+var mail = `https://mail.google.com/mail/?view=cm&fs=1&to=dhanushkrthk15@gmail.com&su=${randomNumber}&body=Upload your files with the correct name ${randomNumber}`;
 var mydiv = document.getElementById("myDiv");
 var aTag = document.createElement("a");
 aTag.setAttribute("href", mail);
-aTag.setAttribute("rel","noopener");
+aTag.setAttribute("rel", "noopener");
 aTag.classList.add("btn", "btn-4");
 aTag.setAttribute("target", "_blank");
 aTag.innerText = "Attach you files";
@@ -170,6 +189,8 @@ let deleteRow = (e) => {
     (item) =>
       item.name !== e.parentElement.parentElement.children[1].textContent
   );
+  document.getElementById("project").value = ""
+  balance.textContent = "select mode of delivery"
   addRows();
 };
 let totalAmount = () => {
@@ -177,27 +198,41 @@ let totalAmount = () => {
   items.map((item) => {
     sum += item.quantity * item.price;
   });
-  total.textContent = sum;
+  document.getElementById("project").addEventListener("change", function () {
+    if (sum != 0 && this.value == "Courier Delivery(Within Tamilnadu)"){
+      total.textContent = sum + 30;
+      balance.textContent = sum + 30;
+    }else if (sum != 0 && this.value == "Courier Delivery(Other)"){
+      total.textContent = sum + 60;
+      balance.textContent = sum + 60;
+    } else if (sum != 0 && this.value == "Two pay Delivery"){
+      total.textContent = sum;
+      balance.textContent = sum;
+    }
+    else if (sum != 0 && this.value == "Office Delivery(Orange)") {
+      total.textContent = sum;
+      balance.textContent = sum;
+    }
+  });
 };
 
 const description = document.getElementById("description");
+const note = document.getElementById("note");
 const input_fields = {
   name: /^[a-zA-Z ]*$/,
   email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
   phone: /^\d{10}$/,
+  account: /^\d{16}$/,
 };
 const validObject = {
   name: false,
   email: false,
   phone: false,
   description: false,
+  account: false,
+  note: false,
 };
-let keys = document.querySelectorAll("input");
-const submitButton = document.getElementById("submit-button");
-const name = document.getElementById("name");
-const phone = document.getElementById("phone");
-const email = document.getElementById("email");
-const project = document.getElementById("project");
+
 const validate = (field, regex) => {
   if (regex.test(field.value)) {
     field.nextElementSibling.className =
@@ -227,14 +262,19 @@ const send = async () => {
       description: description.value,
       items: items,
       random: randomNumber,
+      paymentType:paymentType.value,
+      account:account.value,
+      note:note.value
     }),
   });
   const data = await response.json();
 };
+const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
 
   validObject["description"] = description.value.length < 10 ? false : true;
+  validObject["note"] = description.value.length < 10 ? false : true;
   for (i in validObject) {
     if (!validObject[i]) {
       document.getElementById(
@@ -250,10 +290,12 @@ submitButton.addEventListener("click", (e) => {
     validObject["name"] &&
     validObject["phone"] &&
     validObject["email"] &&
-    validObject["description"]
+    validObject["description"] &&
+    validObject["account"] &&
+    validObject["note"]
   ) {
-    window.location.href = "./result.html";
     localStorage.clear();
     send();
+    window.location.href = "./result.html";
   }
 });
